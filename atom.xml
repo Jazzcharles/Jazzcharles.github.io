@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Charles&#39;s Freetalk</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-02-15T01:57:53.931Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>JazzCharles</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/02/15/hello-world/"/>
+    <id>http://yoursite.com/2019/02/15/hello-world/</id>
+    <published>2019-02-15T01:57:53.931Z</published>
+    <updated>2019-02-15T01:57:53.931Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python——装饰器</title>
+    <link href="http://yoursite.com/2018/07/18/Python%E2%80%94%E2%80%94%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
+    <id>http://yoursite.com/2018/07/18/Python——装饰器/</id>
+    <published>2018-07-18T01:50:47.000Z</published>
+    <updated>2019-02-15T01:57:53.931Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间头条面试的时候被问了一个问题——如何高效的测定程序中每个模块的运行时间，并且不用对代码进行很多修改。没答出来…<br>答案是装饰器，装饰器decorator顾名思义就是在利用函数为对象的性质在函数外套一个函数外壳以实现一些基础操作，通过在被装饰函数上方添加@decorator_func_name实现，例如打印日志、测试运行时间等。</p><a id="more"></a><h5 id="1-装饰器蓝本规范"><a href="#1-装饰器蓝本规范" class="headerlink" title="1. 装饰器蓝本规范"></a>1. 装饰器蓝本规范</h5><pre><code>from functools import wrapsdef decorator_name(f):    @wraps(f)    def decorated(*args, **kwargs):        if not can_run:            return &quot;Function will not run&quot;        return f(*args, **kwargs)    return decorated@decorator_namedef func():    return(&quot;Function is running&quot;)can_run = Trueprint(func())can_run = Falseprint(func())</code></pre><h5 id="2-打印日志"><a href="#2-打印日志" class="headerlink" title="2. 打印日志"></a>2. 打印日志</h5><pre><code>def logger(func):    def print_log(*args, **kwargs):        print(&apos;Params are %s, %s&apos; % (args,kwargs))        ret = func(*args, **kwargs)        return ret    return print_log@loggerdef get_sum(a, b):    print(a, b)    return a + bget_sum(a = 1, b = 2)</code></pre><h5 id="3-运行时间"><a href="#3-运行时间" class="headerlink" title="3. 运行时间"></a>3. 运行时间</h5><pre><code>import timedef timer(func):    def time_func(*args, **kwargs):        start_time = time.time()        print(&apos;Begin time &apos;, start_time)        ret = func(*args, **kwargs)        end_time = time.time()        print(&apos;End time &apos;, end_time)        print(&apos;time &apos;, end_time - start_time)        return ret    return time_func@timerdef get_sum(a, b):    print(&apos;a + b = &apos;, a + b)    return a + bget_sum(1, 2)</code></pre><p>Ref:<a href="https://eastlakeside.gitbooks.io/interpy-zh/content/decorators/your_first_decorator.html" target="_blank" rel="noopener">https://eastlakeside.gitbooks.io/interpy-zh/content/decorators/your_first_decorator.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间头条面试的时候被问了一个问题——如何高效的测定程序中每个模块的运行时间，并且不用对代码进行很多修改。没答出来…&lt;br&gt;答案是装饰器，装饰器decorator顾名思义就是在利用函数为对象的性质在函数外套一个函数外壳以实现一些基础操作，通过在被装饰函数上方添加@decorator_func_name实现，例如打印日志、测试运行时间等。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch入门——Linear Regression</title>
+    <link href="http://yoursite.com/2018/07/14/Pytorch%E5%85%A5%E9%97%A8%E2%80%94%E2%80%94Linear-Regression/"/>
+    <id>http://yoursite.com/2018/07/14/Pytorch入门——Linear-Regression/</id>
+    <published>2018-07-14T13:21:05.000Z</published>
+    <updated>2019-02-15T01:57:53.931Z</updated>
+    
+    <content type="html"><![CDATA[<p>感觉身边用torch的人还是很多的，趁机会蹭蹭热度~<br>以下是用torch实现线性回归的例子学习 y = k <em> x + b 中的 k 和 b<br>loss = (1/2) </em> sigma((y[i] - (k * x[i] + b)) ^ 2), 通过链式手动求梯度更新参数，更一般地利用autograd自动求导</p><a id="more"></a><pre><code>import torch as timport matplotlib as mpbfrom matplotlib import pyplot as pltimport numpy as npfrom IPython import displayprint(&apos;Done Import&apos;)t.manual_seed(1000)# generate data per batch# k = 2, b = 3.5def get_data_batch(batch_size = 8):    x = t.rand(batch_size, 1) * 20    y = 2 * x + 3 * (1 + t.rand(batch_size, 1))    # y = 2x + 3 + noise    return x, y# Initialize w, bw = t.rand(1, 1)b = t.zeros(1, 1)learning_rate = 0.001num_epochs = 10000loss_history = []batch_size = 8for i in range(num_epochs):    x_train, y_train = get_data_batch(batch_size)    # y_pred = t.matmul(w, x_train) + b    y_pred = x_train.mm(w) + b.expand_as(y_train)    loss = 0.5 * (y_train - y_pred) ** 2    loss = loss.sum()    dloss = 1    dloss = dloss * (y_train - y_pred) * (-1)    # dw = x_train.t().mm(dloss)    dw = t.matmul(dloss.t(), x_train)    # accumulate the gradient of db    # print(dw.size())    db = dy_pred.sum()    w.sub_(learning_rate * dw)    b.sub_(learning_rate * db)    loss_history.append((w, b))    if i % 1000 == 0:        #print(i, &apos; w = &apos;, w, &apos; loss = &apos;, loss)        display.clear_output(wait = True)        x = t.arange(0, 20).view(-1, 1)        y = x.mm(w) + b.expand_as(x)        #print(x, y)        plt.plot(x.numpy(), y.numpy())        x2, y2 = get_data_batch(20)        plt.scatter(x2.numpy(), y2.numpy())        plt.xlim(0, 20)        plt.ylim(0, 41)        plt.show()        plt.pause(0.5)print(&quot;w = &quot;, w, &quot; b = &quot;, b)</code></pre><p>参考资料：《深度学习框架Pytorch入门与实践》</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;感觉身边用torch的人还是很多的，趁机会蹭蹭热度~&lt;br&gt;以下是用torch实现线性回归的例子学习 y = k &lt;em&gt; x + b 中的 k 和 b&lt;br&gt;loss = (1/2) &lt;/em&gt; sigma((y[i] - (k * x[i] + b)) ^ 2), 通过链式手动求梯度更新参数，更一般地利用autograd自动求导&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Pytorch" scheme="http://yoursite.com/tags/Pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿飞正传——观后感</title>
+    <link href="http://yoursite.com/2018/07/02/%E9%98%BF%E9%A3%9E%E6%AD%A3%E4%BC%A0%E2%80%94%E2%80%94%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+    <id>http://yoursite.com/2018/07/02/阿飞正传——观后感/</id>
+    <published>2018-07-02T08:59:48.000Z</published>
+    <updated>2019-02-15T01:57:53.931Z</updated>
+    
+    <content type="html"><![CDATA[<p>前两天去看了《阿飞正传》，作为一个不经常看电影，更不经常看王家卫导演的电影的我，纯粹是冲着张国荣的盛世美颜去的。影片讲述了张国荣扮演的阿飞在寻找亲生母亲的过程中和刘嘉玲、张曼玉以及养母之间发生的一系列故事。</p><p>平心而论，文艺片从故事情节几乎很难打动观众，这部片子亦是如此，但是依然能够从哥哥的身上读出不少的内容。哥哥身上的两条线一同发展————爱情与亲情。</p><a id="more"></a><p><img src="https://github.com/Jazzcharles/Jazzcharles.github.io/raw/master/images/20.jpg" alt="Icon"></p><h3 id="亲情"><a href="#亲情" class="headerlink" title="亲情"></a>亲情</h3><p>寻亲一直是推动情节发展的主线，本来给人不讨喜形象的上海养母在哥哥执意离去时说的一番话很让人动容。恰巧前不久也和同学讨论过亲生父母和养父母的问题。没有哪个养父养母会比生父生母对孩子倾注更少的爱。想起当初周立波在节目中道德压迫女孩能原谅生父生母的那一幕，无论是生父母还是养父母都应该给予孩子最起码的尊重，至于对错之分往往都是次要的。我想哥哥在听完那段话之后无语凝噎也是释怀了对养母的那份情感吧。</p><h3 id="爱情"><a href="#爱情" class="headerlink" title="爱情"></a>爱情</h3><p>让人感触更深的莫过于哥哥和曼玉这一条感情线的发展。从影片的一开头两人迫于现实必须分道扬镳，整部剧似乎很大篇幅都在集中刻画曼玉和华仔、哥哥和刘嘉玲（以及学友）的两个部分。可是在我看来，哥哥只是把嘉玲当作肉体的寄托，并不能弥补他精神上的情感空虚，最明显的就是在二女会面的时候互相吃醋的场景时哥哥的那番言行。虽然哥哥和曼玉的这段情也谈不上刻骨铭心、忠贞不渝，但要知道哥哥在火车上最后还是淡然的和华仔谈论着他们心底里那个女人，也就足够了。</p><p>毕竟知音难觅，又有多少人能真正意义上最后嫁给爱情呢，又有多少人为了父母、为了社会的压力而草草妥协。反思当今社会，快餐文化在不停的荼毒着年轻人的爱情观，大学校园里，每到深夜的池边，树林下的荷尔蒙总在刺激着那些单身男女，仿佛一道无形的空气屏障压迫着你————“哦，我也多想像他们一样啊”。但是脱单之后的你拥有了一个喜欢你的人，但是是不是与此同时也失去了一个喜欢本你的自己？很多东西，是不去亲身经历所体会不到的。在这毕业季，无数的人碍于现实分了手，无数的人为将来步入社会没有途径接触另一半而无比焦虑。不知道女生是怎么想，我想至少身边的男同胞们都觉得理想更为重要，片中如果把哥哥寻亲作为他的理想，那么亦是如此，至少从生活状态来看他给不了曼玉未来，他也不会轻易做出承诺，哪怕这种冷漠可能会深深的伤害到双方……</p><p>我想我也不能免俗，又有谁不渴望执子之手与子偕老的爱情呢？与此同时我也知道，为了毕业的时候能对得起自己，家人，甚至是那个遥远的她，三年里的精力还是会更侧重于学习，强求另一半来跟着我受这些苦更想必也是不负责任吧。</p><p><img src="https://github.com/Jazzcharles/Jazzcharles.github.io/raw/master/images/21.jpg" alt="Icon"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前两天去看了《阿飞正传》，作为一个不经常看电影，更不经常看王家卫导演的电影的我，纯粹是冲着张国荣的盛世美颜去的。影片讲述了张国荣扮演的阿飞在寻找亲生母亲的过程中和刘嘉玲、张曼玉以及养母之间发生的一系列故事。&lt;/p&gt;
+&lt;p&gt;平心而论，文艺片从故事情节几乎很难打动观众，这部片子亦是如此，但是依然能够从哥哥的身上读出不少的内容。哥哥身上的两条线一同发展————爱情与亲情。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="movie" scheme="http://yoursite.com/tags/movie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Charles&#39;s Freetalk</title>
+    <link href="http://yoursite.com/2018/06/29/first-demo-hello-world/"/>
+    <id>http://yoursite.com/2018/06/29/first-demo-hello-world/</id>
+    <published>2018-06-29T08:13:00.000Z</published>
+    <updated>2019-02-15T01:57:53.931Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Charles’s-Freetalk"><a href="#Charles’s-Freetalk" class="headerlink" title="Charles’s Freetalk"></a>Charles’s Freetalk</h1><hr><p>借着Github搭了个小的Blog, 其实也只是想找一个平台写写平时心里的想法。时间无言、如此这般，只希望未来的几年学习生活能对得起自己曾经许下的诺言吧。</p><ul><li>日常生活</li><li>技术分享总结</li><li>杂谈  </li></ul><p><img src="https://github.com/Jazzcharles/Jazzcharles.github.io/raw/master/images/img.jpg" alt="Icon"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Charles’s-Freetalk&quot;&gt;&lt;a href=&quot;#Charles’s-Freetalk&quot; class=&quot;headerlink&quot; title=&quot;Charles’s Freetalk&quot;&gt;&lt;/a&gt;Charles’s Freetalk&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;借
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
