@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-26T13:57:01.504Z</updated>
+  <updated>2019-02-26T13:59:07.586Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/02/15/Network-in-Network/"/>
     <id>http://yoursite.com/2019/02/15/Network-in-Network/</id>
     <published>2019-02-14T16:00:00.000Z</published>
-    <updated>2019-02-26T13:57:01.504Z</updated>
+    <updated>2019-02-26T13:59:07.586Z</updated>
     
     <content type="html"><![CDATA[<p>安利一篇发表在13年ICLR的经典著作——《Network in Network》，其中提到的几个经典结构被后来所广泛应用。<br><a href="https://arxiv.org/pdf/1312.4400.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1312.4400.pdf</a></p><h4 id="Spotlight"><a href="#Spotlight" class="headerlink" title="Spotlight"></a>Spotlight</h4><ul><li>小网络嵌入大网络的思想</li><li>1 * 1 卷积</li><li>全局平均池化（Global Average Pooling）</li><li>在当时的Cifar-10,Cifar-100上取得了SOTA</li></ul><a id="more"></a><h4 id="Drawbacks"><a href="#Drawbacks" class="headerlink" title="Drawbacks"></a>Drawbacks</h4><ol><li>传统的神经网络都是通过线性滤波器接非线性激活函数构成，而线性滤波器的特征提取能力有限。必须假设数据是线性可分的，而很多时候数据往往是一个非线性流型。</li><li>传统的网络最后的全链接层（Fully Connected Layer)很容易导致过拟合且对于类别区分的可解释性不强。</li></ol><h4 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h4><ol><li>问题一的解决方法非常直观——既然线性核的能力有限，没错那增加核的数量就可以了啊，因此我们会经常见到上百维通道数的卷积核！那无止境加下去网络的负担就太重了，于是体现Contribution的时候到了！<br>我们现在可以知道深度网络在足够深的情况下能够近似的拟合任何函数，那何不利用这样一个网络（例如多层感知机MLP）去替代卷积核呢？（马后炮一下，13年能有这种idea实属厉害！）在保证能够端到端利用反向传播更新的同时增强了判别能力。文中将这样替换的层称作——mlpconv。原来是利用卷积核在输入特征图上进行滑动，现在改为利用一个MLP进行滑动，同样作用于局部的特征提取。<br><img src="https://github.com/Jazzcharles/Jazzcharles.github.io/raw/master/images/NIN_Fig1.png" alt="Icon"><br>值得一提的是，在实现的过程中采用了1×1卷积来构建MLP。也是1×1卷积首次被提出！</li><li>由于全连接层扮演着类似黑盒操作的来通过将特征图拉伸为特征向量再整合成更低（高）维的特征向量，不具有很高的可解释性，作者提出了直接将特征图和类别之间建立起关联——通过全局平均池化，即对每一通道的特征图独立地进行池化操作，得到的值作为类别的置信度。文中表明全局平均池化本身也可以作为结构化正则项来对抗过拟合。全局平均池化有两个显著优点：<br> (1) 不需要额外的参数，而通常CNN的网络参数大多集中在全连接层，减轻了网络的复杂性。<br> (2) 由于对整张特征图采取平均操作，因此对于图像中微小的扰动，空间上的变换具有更强的鲁棒性。<blockquote><p>例如经过数个卷积层之后总共有c个，大小都为 n $$\times$$ n 的特征图，对每一个特征图的 n $$\times$$ n 个值取平均得到一个值，体现了全局的概念。输出维度为[c, 1]的特征向量。再通过如Softmax层等对应到各类别概率。</p></blockquote><h4 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h4></li></ol><ul><li>整个网络的架构如下图所示，总共采用了三个Mlpconv层接最大池化，并在除了最后Mlpconv层以外的输出加入Dropout<br><img src="https://github.com/Jazzcharles/Jazzcharles.github.io/raw/master/images/NIN_Fig2.png" alt="Icon"><h4 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h4></li><li>方便起见只贴一个在Cifar-10上SOTA的结果，主要的对比对象是同年ICML上又一篇佳作《Maxout Network》[2]有空再讲。<br><img src="https://github.com/Jazzcharles/Jazzcharles.github.io/raw/master/images/NIN_Fig3.png" alt="Icon"><h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4></li><li>Min Lin, Qiang Chen, and Shuicheng Yan. Network in network. CoRR abs/1312.4400, 2013</li><li>Goodfellow, Ian J., et al. “Maxout networks.” arXiv preprint arXiv:1302.4389 (2013).</li></ul>]]></content>
     
