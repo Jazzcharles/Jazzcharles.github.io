@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-02T05:57:45.685Z</updated>
+  <updated>2019-04-02T06:09:28.351Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,17 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>SL_Chapter2</title>
+    <title>Statistical Learning Chapter 2 --- Perceptron</title>
     <link href="http://yoursite.com/2019/04/02/SL-Chapter2/"/>
     <id>http://yoursite.com/2019/04/02/SL-Chapter2/</id>
     <published>2019-04-02T05:44:10.000Z</published>
-    <updated>2019-04-02T05:57:45.685Z</updated>
+    <updated>2019-04-02T06:09:28.351Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Statistical-Learning-Chapter-2-—-Perceptron"><a href="#Statistical-Learning-Chapter-2-—-Perceptron" class="headerlink" title="Statistical Learning Chapter 2 — Perceptron"></a>Statistical Learning Chapter 2 — Perceptron</h2><p>In Chapter 2, we introduce a linear binary classifier — Perceptron. It takes linearly separable samples as input and output +1/-1 to represent positive and negative. I’ll summarize Perceptron in the following ways.</p><ul><li>Concept</li><li>Model </li><li>Loss Function</li><li>Optimization Algorithm and the Dual Form</li><li>Convergence</li></ul><a id="more"></a><p>Please refer to <a href="https://github.com/Jazzcharles/Notes-on-Statiscal-Learning/blob/master/Chapter2_Perceptron.pdf" target="_blank" rel="noopener">https://github.com/Jazzcharles/Notes-on-Statiscal-Learning/blob/master/Chapter2_Perceptron.pdf</a></p>]]></content>
+    <content type="html"><![CDATA[<p>In Chapter 2, we introduce a linear binary classifier — Perceptron. It takes linearly separable samples as input and output +1/-1 to represent positive and negative. I’ll summarize Perceptron in the following ways.</p><ul><li>Concept</li><li>Model </li><li>Loss Function</li><li>Optimization Algorithm and the Dual Form</li><li>Convergence</li></ul><a id="more"></a><p>Please refer to the notes:<br><a href="https://github.com/Jazzcharles/Notes-on-Statiscal-Learning/blob/master/Chapter2_Perceptron.pdf" target="_blank" rel="noopener">https://github.com/Jazzcharles/Notes-on-Statiscal-Learning/blob/master/Chapter2_Perceptron.pdf</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Statistical-Learning-Chapter-2-—-Perceptron&quot;&gt;&lt;a href=&quot;#Statistical-Learning-Chapter-2-—-Perceptron&quot; class=&quot;headerlink&quot; title=&quot;Statistical Learning Chapter 2 — Perceptron&quot;&gt;&lt;/a&gt;Statistical Learning Chapter 2 — Perceptron&lt;/h2&gt;&lt;p&gt;In Chapter 2, we introduce a linear binary classifier — Perceptron. It takes linearly separable samples as input and output +1/-1 to represent positive and negative. I’ll summarize Perceptron in the following ways.&lt;/p&gt;
+      &lt;p&gt;In Chapter 2, we introduce a linear binary classifier — Perceptron. It takes linearly separable samples as input and output +1/-1 to represent positive and negative. I’ll summarize Perceptron in the following ways.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Concept&lt;/li&gt;
 &lt;li&gt;Model &lt;/li&gt;
