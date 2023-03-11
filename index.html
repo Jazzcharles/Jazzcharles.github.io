@@ -1,450 +1,261 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+<!DOCTYPE HTML>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Jilan Xu</title>
+  
+  <meta name="author" content="Jilan Xu">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learning Open-vocabulary Semantic Segmentation Models From Natural Language Supervision</title>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon" type="image/png" href="images/seal_icon.png">
 </head>
+
 <body>
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:65%;vertical-align:middle">
+              <p style="text-align:center">
+                <name>Jilan Xu</name>
+		<br>
+		 <a href="mailto:[deletethis] jilanxu18@fudan.edu.cn", style="color:grey">jilanxu18 at fudan dot edu dot cn</a>
+		<br>
+		<br>
+              <p>I am a second year PhD student at Fudan University, advised by Professor Yuejie Zhang. My research focuses on multimodal machine learning, video understanding, semantic segmentation, and medical image analysis. I hope that someday medical AI agents would heal the world, make it a better place, for the entire human race.
+              <p style="text-align:center">
+                <a href="https://scholar.google.com/citations?user=mf2U64IAAAAJ&hl=en&oi=ao">Google Scholar</a> &nbsp/&nbsp
+		            <a href="https://twitter.com/JazzzCharles">Twitter</a> &nbsp/&nbsp
+                <a href="https://github.com/Jazzcharles"> GitHub </a> &nbsp/&nbsp
+                <a href="https://www.zhihu.com/people/Jazz_charles">Zhihu</a>&nbsp
+              </p>
+            </td>
+            <style>
+              
+            </style> 
+            <td style="padding:2.5%;width:40%;max-width:40%">
+              <a href="images/nologo.jpg"><img style="width:70%;max-width:70%;border-radius:50%" alt="profile photo" src="images/nologo.jpg" class="img-circle" ></a>
+            </td>
+          </tr>
+        </tbody></table>
+	
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <heading>Research</heading>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <!--
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-        -->
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Learning Open-vocabulary Semantic Segmentation Models
-          From Natural Language Supervision</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a>Jilan Xu</a><sup>1,2</sup>,</span>
-              <!--<a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>-->
-            <span class="author-block">
-              <a>Junlin Hou</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a>Yuejie Zhang</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a>Rui Feng</a><sup>1</sup>,</span>
-            <span class="author-block">
-                <a>Yi Wang</a><sup>2</sup>,</span>
-            <span class="author-block">
-                <a>Yu Qiao</a><sup>2</sup>,</span>
-            <span class="author-block">
-                  <a>Weidi Xie</a><sup>2,3</sup>,</span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Fudan University,</span>
-            <span class="author-block"><sup>2</sup>Shanghai AI Laboratory</span>
-            <span class="author-block"><sup>3</sup>Shanghai Jiaotong University</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <!--<span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              -->
-              <!-- Video Link. -->
-              <!--<span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              -->
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code (Coming Soon)</span>
+          </td>
+            </tr>
+        </tbody></table>
+        <style>
+          img {
+            border-radius: 15px;
+          }
+        </style>
+        
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+         	   <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/ovsegmentor.png" alt="ovsegmentor" width="160" height="100">
+                </td>
+                <td width="75%" valign="middle">
+                  <a href="https://arxiv.org/abs/2301.09121">
+                    <papertitle> Learning Open-vocabulary Semantic Segmentation Models From Natural Language Supervision </papertitle>
                   </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://drive.google.com/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
+                  <br>
+			                <b>Jilan Xu</b>, Junlin Hou, Yuejie Zhang, Rui Feng, Yi Wang, Yu Qiao, Weidi Xie
+                  <br>
+                  <em>CVPR</em> 2023 &nbsp 
+                  <br>
+                  <a href="https://arxiv.org/pdf/2301.09121.pdf">arXiv</a> / <a href="https://jazzcharles.github.io/OVSegmentor">project page</a> / <a href="https://github.com/Jazzcharles/OVSegmentor">code</a>
+                  <p></p>
+                  <p>Training open-vocabulary semantic segmentation models with image-text pairs only, which enables zero-transfer to various segmentation datasets. </p>
+                </td>
+              </tr>
+		
+
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/cream.png" alt="cream" width="160" height="100">
+                </td>
+                <td width="75%" valign="middle">
+                  <a href="https://arxiv.org/abs/2205.13922">
+                    <papertitle> CREAM: Weakly supervised object localization via class re-activation mapping </papertitle>
                   </a>
-            </div>
+                  <br>
+			                <b>Jilan Xu</b>, Junlin Hou, Yuejie Zhang, Rui Feng, Rui-Wei Zhao, Tao Zhang, Xuequan Lu, Shang Gao
+                  <br>
+                  <em>CVPR</em> 2022 &nbsp 
+                  <br>
+                  <a href="https://arxiv.org/pdf/2205.13922.pdf">arXiv</a>
+                  <p></p>
+                  <p>A weakly-supervised object localization model that generates better CAMs via soft-clustering algorithms. </p>
+                </td>
+              </tr>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/cmcv2.png" alt="cmcv2" width="160" height="100">
+                </td>
+                <td width="75%" valign="middle">
+                  <a href="https://arxiv.org/abs/2211.14557">
+                    <papertitle> CMC_v2: Towards More Accurate COVID-19 Detection with Discriminative Video Priors </papertitle>
+                  </a>
+                  <br>
+                      Junlin Hou, <b>Jilan Xu</b>, Nan Zhang, Yi Wang, Yuejie Zhang, Xiaobo Zhang, Rui Feng
+                  <br>
+                  <em>ECCV</em> 2022 AIMIA Workshop &nbsp 
+                  <br>
+                  <a href="https://arxiv.org/pdf/2211.14557.pdf">arXiv</a> / <a href="https://github.com/houjunlin/Team-FDVTS-COVID-Solution">code</a>
+                  <p></p>
+                  <p>A Transformer-based model with contrastive representation enhancement. Winner of the 2nd COVID-19 Detection in ECCV 2022. </p>
+                </td>
+              </tr>
 
-<!--
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
--->
-
-<!--
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
--->
-
-<!--
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
--->
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/internvideo.png" alt="internvideo" width="160" height="100">
+                </td>
+                <td width="75%" valign="middle">
+                  <a href="https://arxiv.org/abs/2212.03191">
+                    <papertitle> InternVideo: General Video Foundation Models via Generative and Discriminative Learning </papertitle>
+                  </a>
+                  <br>
+                    Yi Wang, Kunchang Li, Yizhuo Li, Yinan He, Bingkun Huang, Zhiyu Zhao, Hongjie Zhang, <b>Jilan Xu</b>, Yi Liu, Zun Wang, Sen Xing, Guo Chen, Junting Pan, Jiashuo Yu, Yali Wang, Limin Wang, Yu Qiao
+                  <br>
+                  <em>Tech report</em> 2022 &nbsp 
+                  <br>
+                  <a href="https://arxiv.org/pdf/2212.03191.pdf">arxiv</a> / <a href="https://github.com/OpenGVLab/InternVideo">code</a>
+                  <p></p>
+                  <p>A fundation model for video / video-text understanding, achieving SOTA over 30 benchmark datasets. </p>
+                </td>
+              </tr>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-    <div class="column is-full-width">
-      <!-- Visual Effects. -->
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            In this paper, we consider the problem of open-vocabulary semantic segmentation (OVS), which aims to segment objects of arbitrary classes instead of pre-defined, closed-set categories. The main contributions are as follows: 
-<b>First</b>, we propose a transformer-based model for OVS, termed as OVSegmentor, which only exploits web-crawled image-text pairs for pre-training without using any mask annotations. OVSegmentor assembles the image pixels into a set of learnable group tokens via a slot-attention based binding module, and aligns the group tokens to the corresponding caption embedding. 
-<b>Second</b>, we propose two proxy tasks for training, namely masked entity completion and cross-image mask consistency. The former aims to infer all masked entities in the caption given the group tokens, 
-that enables the model to learn fine-grained alignment between visual groups and text entities. The latter enforces consistent mask predictions between images that contain shared entities, which encourages the model to learn visual invariance. 
-<b>Third</b>, we construct CC4M dataset for pre-training by filtering CC12M with frequently appeared entities, which significantly improves training efficiency.
-<b>Fourth</b>, we perform zero-shot transfer on three benchmark datasets, PASCAL VOC 2012, PASCAL Context, and COCO Object. Our model achieves superior segmentation results over the state-of-the-art method by using only 3% data (4M vs 134M) for pre-training. Code and pre-trained models will be released for future research.
-          </p>
-      </div>
-    </div>
-      <!--/ Visual Effects. -->
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/tccnet.png" alt="tccnet" width="160" height="100">
+                </td>
+                <td width="75%" valign="middle">
+                  <a href="https://www.ijcai.org/proceedings/2022/0155.pdf">
+                    <papertitle> TCCNet: Temporally Consistent Context-Free Network for Semi-supervised Video Polyp Segmentation </papertitle>
+                  </a>
+                  <br>
+                    Xiaotong Li, <b>Jilan Xu</b>, Yuejie Zhang, Rui Feng, Rui-Wei Zhao, Tao Zhang, Xuequan Lu, Shang Gao
+                  <br>
+                  <em>IJCAI</em> 2022, Oral &nbsp 
+                  <br>
+                  <a href="https://www.ijcai.org/proceedings/2022/0155.pdf">paper</a>
+                  <p></p>
+                  <p>Co-training a model for semi-supervised video polyp segmentation, achieving comparable results using only 15% labeled data.</p>
+                </td>
+              </tr>
 
-      <!-- Matting. -->
-      <!--
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/cmcv1.png" alt="cmcv1" width="160" height="100">
+                </td>
+                <td width="75%" valign="middle">
+                  <a href="https://openaccess.thecvf.com/content/ICCV2021W/MIA-COV19D/papers/Hou_CMC-COV19D_Contrastive_Mixup_Classification_for_COVID-19_Diagnosis_ICCVW_2021_paper.pdf">
+                    <papertitle> CMC-COV19D: Contrastive Mixup Classification for COVID-19 Diagnosis </papertitle>
+                  </a>
+                  <br>
+                    Junlin Hou*, <b>Jilan Xu*</b>, Rui Feng, Yuejie Zhang, Fei Shan, Weiya Shi
+                  <br>
+                  <em>ICCV</em> 2021, AIMIA Workshop. &nbsp 
+                  <br>
+                  <a href="https://openaccess.thecvf.com/content/ICCV2021W/MIA-COV19D/papers/Hou_CMC-COV19D_Contrastive_Mixup_Classification_for_COVID-19_Diagnosis_ICCVW_2021_paper.pdf">paper</a> / <a href="https://github.com/houjunlin/Team-FDVTS-COVID-Solution">code</a>
+                  <p></p>
+                  <p>A ResNest-50 model combined with contrastive mixup technique for 3D COVID-19 CT image classification. Winner of the 1st COVID-19 detection challenge.</p>
+                </td>
+              </tr> 
 
-        </div>
-      </div>
-      -->
-    </div>
-    <!--/ Matting. -->
+              
+              
+              <tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <img src="images/drl.png" alt="drl" width="160" height="100">
+                </td>
+                <td width="75%" valign="middle">
+                  <a href="https://ieeexplore.ieee.org/document/9313159/#:~:text=Data-Efficient%20Histopathology%20Image%20Analysis%20with%20Deformation%20Representation%20Learning,are%20often%20expensive%20and%20laborious%20in%20realworld%20scenarios.">
+                    <papertitle> Data-Efficient Histopathology Image Analysis with Deformation Representation Learning </papertitle>
+                  </a>
+                  <br>
+                    <b>Jilan Xu</b>, Junlin Hou, Yuejie Zhang, Rui Feng, Chunyang Ruan, Tao Zhang, Weiguo Fan
+                  <br>
+                  <em>BIBM</em> 2020, Oral &nbsp 
+                  <br>
+                  <a href="https://ieeexplore.ieee.org/document/9313159/#:~:text=Data-Efficient%20Histopathology%20Image%20Analysis%20with%20Deformation%20Representation%20Learning,are%20often%20expensive%20and%20laborious%20in%20realworld%20scenarios.">paper</a>
+                  <p></p>
+                  <p>Introducing a self-supervised deformation representation learning technique for histopathology image analysis.</p>
+                </td>
+              </tr>
+
+        </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+          <tr>
+            <td>
+              <heading>Awards & Honors</heading>
+              <p>
+                  <ul>
+                    <li>Winner of the 1st & 2nd COVID-19 Detection Challenge @ ICCV 2021 & ECCV 2022</li>
+                    <li>Winner of the 1st COVID-19 Severity Detection Challenge @ ECCV 2022</li>
+                    <li>VenusTech Enterprise Scholarship</li>
+                  </ul>
+              </p>
+            </td>
+          </tr> 
+        </tbody></table>
+
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+          <tr>
+            <td>
+              <heading>Working Experience</heading>
+              <p>
+                  <ul>
+                    <li>Research intern @ Shanghai AI Laboratory, supervised by Dr. Yi Wang and Prof. Yu Qiao.</li>
+                    <li>Research intern @ Bell AI Lab, Shanghai, supervised by Dr. Chenhui Ye.</li>
+                    <li>Google Winter AI Camp. Our team won the best presentation award !!!</li>
+                    <li>SWE intern @ Morgan Stanley Technology, supervised by Ray Zhou.</li>
+                  </ul>
+              </p>
+            </td>
+          </tr> 
+        </tbody></table>
 
 
 
-  </div>
-</section>
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+          <tr>
+            <td>
+              <heading>Service</heading>
+              <p>
+                <strong> Reviewer </strong>: CVPR23, ICCV23, NeurIPS22, NeuroComputing
+              </p>
+              <p>
+                <strong> TA </strong>: Data Structure, Theory of Computation
+              </p>
+            </td>
+          </tr> 
+        </tbody></table>
 
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-    <div class="column is-full-width">
-      <!-- Visual Effects. -->
-        <h2 class="title is-3">Model Architecture</h2>
-        <img src="static/images/figmodel.svg" style="width: 100%" alt>
-        <div class="content has-text-justified">
-        <p>
-          <b>Overall framework of our model.</b> The model takes an image-text pair as input, and outputs the image features and a set of learnable group tokens, which is aligned to the caption embedding via L_contrast. The visual encoder consists of Transformer encoder layers, with a slot-attention based binding module in between to cluster the image tokens into groups. To enrich group semantics, (1) L_entity trains the model to infer all masked entities in the caption given the group tokens. (2) L_mask enforces consistent mask predictions of images with the same entity (right figure). During inference, only visual and text encoders and learned group tokens are used to generate the segmentation mask.
-        </p>
-        </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-    <div class="column is-full-width">
-      <!-- Visual Effects. -->
-        <h2 class="title is-3">Dataset</h2>
-        <div class="content has-text-justified">
-        <p>
-          In this work, we construct an image-caption dataset CC4M for pre-training, by designing an automatic approach to filter Conceptual-Captions 12M with frequently appeared informative entities, significantly improving the training efficiency. There are a total number of 100 entites (e.g. people, car,
-          cup, chair, T-shirt, house, bed, cat, ball, pizza, etc) and abstract nouns (e.g. art, view, illustration, day, etc) are discarded as they usually do not correspond to specific regions in the image. The filtered data will be released soon.
-        </p>
-        </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-    <div class="column is-full-width">
-      <!-- Visual Effects. -->
-        <h2 class="title is-3">Visualization results on PASCAL VOC</h2>
-        <img src="static/images/fig1.png" style="width: 100%" alt>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{xu2023ovsegmentor,
-  author    = {Jilan Xu, Junlin Hou, Yuejie Zhang, Rui Feng, Yi Wang, Yu Qiao, Weidi Xie},
-  title     = {Learning Open-vocabulary Semantic Segmentation Models From Natural Language Supervision},
-  journal   = {Arxiv},
-  year      = {2023},
-}</code></pre>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:0px">
+              <br>
+              <p style="text-align:right;font-size:small;">
+                 <a href="https://jonbarron.info/">This</a> guy is good at website design.
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </table>
 </body>
+
 </html>
