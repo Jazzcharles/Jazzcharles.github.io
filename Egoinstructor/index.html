@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
   <meta charset="utf-8">
   <meta name="description"
         content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learning Open-vocabulary Semantic Segmentation Models From Natural Language Supervision</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>Retrieval-Augmented Egocentric Video Captioning</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -90,37 +92,39 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Learning Open-vocabulary Semantic Segmentation Models
-          From Natural Language Supervision</h1>
-          <div class="is-size-5 publication-authors">
+          <h1 class="title is-1 publication-title">Retrieval-Augmented Egocentric Video Captioning
+          </h1>
+          <div class="is-size-4 publication-authors">
             <span class="author-block">
-              <a>Jilan Xu</a><sup>1,2</sup>,</span>
-              <!--<a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>-->
+              <a href="https://jazzcharles.github.io/">Jilan Xu</a><sup>1,5</sup>,</span>
             <span class="author-block">
-              <a>Junlin Hou</a><sup>1</sup>,</span>
+              <a href="https://hyf015.github.io/">Yifei Huang</a><sup>2,5</sup>,</span>
             <span class="author-block">
-              <a>Yuejie Zhang</a><sup>1</sup>,</span>
+              <a href="https://houjunlin.github.io/">Junlin Hou</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a>Rui Feng</a><sup>1</sup>,</span>
+              <a>Guo Chen</a><sup>3,5</sup>,</span>
             <span class="author-block">
-                <a href="https://shepnerd.github.io/">Yi Wang</a><sup>2</sup>,</span>
+                <a>Yuejie Zhang</a><sup>1</sup>,</span>
             <span class="author-block">
-                <a>Yu Qiao</a><sup>2</sup>,</span>
+                <a>Rui Feng</a><sup>1</sup>,</span>
             <span class="author-block">
-                  <a href="https://weidixie.github.io/">Weidi Xie</a><sup>2,3</sup>,</span>
+                  <a href="https://weidixie.github.io/">Weidi Xie</a><sup>4,5</sup>,</span>
           </div>
-
-          <div class="is-size-5 publication-authors">
+          
+          <div class="is-size-4 publication-authors">
             <span class="author-block"><sup>1</sup>Fudan University,</span>
-            <span class="author-block"><sup>2</sup>Shanghai AI Laboratory</span>
-            <span class="author-block"><sup>3</sup>Shanghai Jiao Tong University</span>
+            <span class="author-block"><sup>2</sup>The University of Tokyo</span>
+            <span class="author-block"><sup>3</sup>Nanjing University</span>
+            <span class="author-block"><sup>4</sup>Shanghai Jiao Tong University</span>
+            <span class="author-block"><sup>5</sup>Shanghai AI Laboratory</span>
+
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2301.09121"
+                <a href="https://arxiv.org/pdf/2401.00789.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -151,22 +155,22 @@
               -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/Jazzcharles/OVSegmentor/"
+                <a href="https://github.com/Jazzcharles/Egoinstructor/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (Coming Soon)</span>
                   </a>
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="https://drive.google.com/file/d/1ENpsWndAkWc0UZJvdJJDicPxpzrPugve/view?usp=share_link"
+                <a href="https://arxiv.org/pdf/2401.00789.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
-                  <span>Data</span>
+                  <span>Data (Coming Soon)</span>
                   </a>
             </div>
 
@@ -305,6 +309,22 @@
 </section>
 -->
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width">
+      <!-- Visual Effects. -->
+        <img src="static/images/figabs.png" style="width: 100%" alt>
+        <div class="content has-text-justified">
+        <!-- <p>
+          <b>Overall framework of our model.</b> 
+        </p> -->
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -314,12 +334,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this paper, we consider the problem of open-vocabulary semantic segmentation (OVS), which aims to segment objects of arbitrary classes instead of pre-defined, closed-set categories. The main contributions are as follows: 
-<b>First</b>, we propose a transformer-based model for OVS, termed as OVSegmentor, which only exploits web-crawled image-text pairs for pre-training without using any mask annotations. OVSegmentor assembles the image pixels into a set of learnable group tokens via a slot-attention based binding module, and aligns the group tokens to the corresponding caption embedding. 
-<b>Second</b>, we propose two proxy tasks for training, namely masked entity completion and cross-image mask consistency. The former aims to infer all masked entities in the caption given the group tokens, 
-that enables the model to learn fine-grained alignment between visual groups and text entities. The latter enforces consistent mask predictions between images that contain shared entities, which encourages the model to learn visual invariance. 
-<b>Third</b>, we construct CC4M dataset for pre-training by filtering CC12M with frequently appeared entities, which significantly improves training efficiency.
-<b>Fourth</b>, we perform zero-shot transfer on three benchmark datasets, PASCAL VOC 2012, PASCAL Context, and COCO Object. Our model achieves superior segmentation results over the state-of-the-art method by using only 3% data (4M vs 134M) for pre-training. Code and pre-trained models will be released for future research.
+            <font size=5>
+            Understanding human actions from videos of first-person view poses significant challenges. Most prior approaches explore representation learning on egocentric videos only, while overlooking the potential benefit of exploiting existing large-scale third-person videos. 
+            In this paper, (1) we develop EgoInstructor, a retrieval-augmented multimodal captioning model that automatically retrieves semantically relevant third-person instructional videos to enhance the video captioning of egocentric videos. 
+            (2) For training the cross-view retrieval module, we devise an automatic pipeline to discover ego-exo video pairs from distinct largescale egocentric and exocentric datasets. 
+            (3) We train the cross-view retrieval module with a novel EgoExoNCE loss that pulls egocentric and exocentric video features closer by aligning them to shared text features that describe similar actions. 
+            (4) Through extensive experiments, our cross-view retrieval module demonstrates superior performance across seven benchmarks. Regarding egocentric video captioning, EgoInstructor exhibits significant improvements by leveraging third-person videos as references.
+          </font>
           </p>
       </div>
     </div>
@@ -360,10 +381,34 @@ that enables the model to learn fine-grained alignment between visual groups and
     <div class="column is-full-width">
       <!-- Visual Effects. -->
         <h2 class="title is-3">Model Architecture</h2>
-        <img src="static/images/figmodel.svg" style="width: 100%" alt>
+        <img src="static/images/figmodel.png" style="width: 100%" alt>
         <div class="content has-text-justified">
         <p>
-          <b>Overall framework of our model.</b> The model takes an image-text pair as input, and outputs the image features and a set of learnable group tokens, which is aligned to the caption embedding via L_contrast. The visual encoder consists of Transformer encoder layers, with a slot-attention based binding module in between to cluster the image tokens into groups. To enrich group semantics, (1) L_entity trains the model to infer all masked entities in the caption given the group tokens. (2) L_mask enforces consistent mask predictions of images with the same entity (right figure). During inference, only visual and text encoders and learned group tokens are used to generate the segmentation mask.
+          <font size=5>
+          <b>Overall framework of our model.</b> Given an egocentric video, we first retrieve relevant exocentric instructional videos using
+          a frozen cross-view retrieval module pre-trained on pseudo ego-exo pairs generated automatically. The multimodal captioning model
+          (consisting of a visual encoder, a perceiver resampler, and a text decoder.) takes the egocentric video and the retrieved videos and captions
+          as references, and generates the caption of the ego-video.
+        </font>
+        </p>
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width">
+      <!-- Visual Effects. -->
+        <h2 class="title is-3">Pretrain Dataset</h2>
+        <img src="static/images/figdata.png" style="width: 100%" alt>
+        <div class="content has-text-justified">
+        <p>
+
         </p>
         </div>
     </div>
@@ -376,11 +421,11 @@ that enables the model to learn fine-grained alignment between visual groups and
     <div class="columns is-centered has-text-centered">
     <div class="column is-full-width">
       <!-- Visual Effects. -->
-        <h2 class="title is-3">Dataset</h2>
         <div class="content has-text-justified">
         <p>
-          In this work, we construct an image-caption dataset CC4M for pre-training, by designing an automatic approach to filter Conceptual-Captions 12M with frequently appeared informative entities, significantly improving the training efficiency. There are a total number of 100 entites (e.g. people, car,
-          cup, chair, T-shirt, house, bed, cat, ball, pizza, etc) and abstract nouns (e.g. art, view, illustration, day, etc) are discarded as they usually do not correspond to specific regions in the image. The filtered data will be released soon.
+          <font size=5>
+          In this work, we train the cross-view retrieval module by constructing pseudo paired egocentric (Ego4d) and exocentric (HowTo100M) videos. This is achieved by: (1) refining the HowTo100M ASR transcripts by an LLM to descriptive style. (2) pairing videos based on their narration similarities. 
+          </font>
         </p>
         </div>
     </div>
@@ -389,13 +434,24 @@ that enables the model to learn fine-grained alignment between visual groups and
 </section>
 
 
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
     <div class="column is-full-width">
       <!-- Visual Effects. -->
-        <h2 class="title is-3">Visualization results on PASCAL VOC</h2>
-        <img src="static/images/fig1.png" style="width: 100%" alt>
+        <h2 class="title is-3">Visualisation Results of Retrieval-Augmented Captioning</h2>
+        <img src="static/images/figvis1.png" style="width: 100%" alt>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-full-width">
+      <!-- Visual Effects. -->
+        <img src="static/images/figvis2.png" style="width: 100%" alt>
     </div>
     </div>
   </div>
@@ -405,13 +461,14 @@ that enables the model to learn fine-grained alignment between visual groups and
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
-      @inproceedings{xu2023learning,
-        title={Learning open-vocabulary semantic segmentation models from natural language supervision},
-        author={Xu, Jilan and Hou, Junlin and Zhang, Yuejie and Feng, Rui and Wang, Yi and Qiao, Yu and Xie, Weidi},
-        booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-        pages={2935--2944},
-        year={2023}
+      <font size=4>
+      @article{xu2024retrieval,
+        title={Retrieval-Augmented Egocentric Video Captioning},
+        author={Xu, Jilan and Huang, Yifei and Hou, Junlin and Chen, Guo and Zhang, Yuejie and Feng, Rui and Xie, Weidi},
+        journal={arXiv preprint arXiv:2401.00789},
+        year={2024}
       }
+      </font>
     </code></pre>
   </div>
 </section>
