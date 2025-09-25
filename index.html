@@ -158,10 +158,54 @@
           </tbody>
         </table>
         
-        <div class="tab">
-          <button class="tablinks active" onclick="openTab(event, 'ComputerVision')">Computer Vision</button>
-          <button class="tablinks" onclick="openTab(event, 'Medical')">Medical Image Analysis</button>
-        </div>
+        <style>
+          .tab button {
+            flex: 1;
+            font-size: 18px;
+            padding: 12px 0;
+            border: 1px solid #d0d0d0;
+            background: #f5f8ff;
+            cursor: pointer;
+            transition: background 0.2s ease; /* 平滑过渡 */
+          }
+          
+          .tab button:first-child {
+            border-radius: 8px 0 0 8px;
+            border-right: none;
+          }
+          
+          .tab button:last-child {
+            border-radius: 0 8px 8px 0;
+          }
+          
+          /* hover 时稍微深一点 */
+          .tab button:hover {
+            background: #e6edff;
+          }
+          
+          /* active 时更深 */
+          .tab button.active {
+            background: #d0dbff;
+          }
+          </style>
+          
+          <div class="tab" style="display: flex; width: 100%; margin-bottom: 20px;">
+            <button class="tablinks active" onclick="openTab(event, 'ComputerVision')">Computer Vision</button>
+            <button class="tablinks" onclick="openTab(event, 'Medical')">Medical Image Analysis</button>
+          </div>
+          
+          <script>
+          function openTab(evt, tabName) {
+            // 移除所有按钮的 active
+            const buttons = document.getElementsByClassName("tablinks");
+            for (let i = 0; i < buttons.length; i++) {
+              buttons[i].classList.remove("active");
+            }
+            // 给当前点击的按钮加 active
+            evt.currentTarget.classList.add("active");
+          }
+          </script>
+          
         
         <div id="ComputerVision" class="tabcontent" style="display:block;">
           <!-- 将Computer Vision相关的研究项目放在这里 -->
